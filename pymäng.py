@@ -17,6 +17,7 @@ tegelaneImg = pygame.transform.scale(tegelaneImg, (300, 540))
 õnnelikTegelane = pygame.transform.scale(õnnelikTegelane, (300, 540))
 X = 250
 Y = 50
+#see on minu kommentaar
 X_change = 0
 Y_change = 0
 def player(x, y):
