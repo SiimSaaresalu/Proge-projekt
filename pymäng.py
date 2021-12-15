@@ -1,5 +1,6 @@
 import pygame
-
+from pygame.locals import *
+from pygame import mixer
 pygame.init()
 
 # see osa võtab tekstifailist teksti ja paneb need sõnastikku valikud kirja kujul
@@ -7,6 +8,7 @@ pygame.init()
 
 f = open("lizetekst.txt", encoding="utf-8")
 read = f.readlines()
+f.close()
 valikud = dict()
 for rida in read:
     reasisu = rida.strip().split("/")
@@ -53,31 +55,60 @@ valik1_kast = pygame.Rect(400, 170, 380, 20)
 valik2_kast = pygame.Rect(492, 210, 197, 20)
 hoid = False    
 
+#muusika
+
+mixer.init()
+mixer.music.load('Toto-Africa-_Official-HD-Video_.ogg')
+mixer.music.set_volume(0.5)
 #põhiprogramm
 
 running = True
 while running:
     screen.fill((0, 0, 0))
     screen.blit(taust, (0, 0))
-    tekst_kõne('ARIALUNI.ttf', 20, valikud[praegune_stseen][0], (0, 0, 0), 550, 140, False)
-    tekst_kõne('ARIALUNI.ttf', 16, valikud[praegune_stseen][1], (0, 0, 0), 590, 180, False)
-    tekst_kõne('ARIALUNI.ttf', 16, valikud[praegune_stseen][4], (0, 0, 0), 590, 220, False)
-    mpos = pygame.mouse.get_pos()
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            crashed = True
-            pygame.quit()
-            quit()
-    klõps = pygame.mouse.get_pressed()
-    if klõps[0]:
-        if hoid == False:
-            if valik1_kast.collidepoint(mpos):
-                taust = taustapildid[valikud[praegune_stseen][3]]
-                praegune_stseen = valikud[praegune_stseen][2]
-            if valik2_kast.collidepoint(mpos):
-                taust = taustapildid[valikud[praegune_stseen][6]]
-                praegune_stseen = valikud[praegune_stseen][5]
-            hoid = True
-    else:
-        hoid = False
+    if praegune_stseen == 'TREPP-VEIN' or praegune_stseen == 'TREPP-MIDAGI':
+        if not mixer.music.get_busy():
+            mixer.music.play(start=140)
+    elif praegune_stseen == 'GEN-VEIN' or praegune_stseen == 'GEN-MIDAGI':
+        if not mixer.music.get_busy():
+            mixer.music.play()
+    if praegune_stseen in {'AAR-LÕPP','KAINE-LÕPP','EKSMAT-LÕPP','MÄNG-LÕPP','BLACKOUT-LÕPP'}:
+        tekst_kõne('INCONSOLATA.TTF', 20, valikud[praegune_stseen], (0, 0, 0), 550, 140, False)
+        tekst_kõne('INCONSOLATA.TTF', 16, "Sulge mäng", (0, 0, 0), 590, 220, False)
+        mpos = pygame.mouse.get_pos()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+        klõps = pygame.mouse.get_pressed()
+        if klõps[0]:
+            if hoid == False:
+                if valik2_kast.collidepoint(mpos):
+                    pygame.quit()
+                    quit()
+                hoid = True
+        else:
+            hoid = False
+    if praegune_stseen not in {'AAR-LÕPP','KAINE-LÕPP','EKSMAT-LÕPP','MÄNG-LÕPP','BLACKOUT-LÕPP'}:
+        tekst_kõne('INCONSOLATA.TTF', 20, valikud[praegune_stseen][0], (0, 0, 0), 600, 140, False)
+        tekst_kõne('INCONSOLATA.TTF', 16, valikud[praegune_stseen][1], (0, 0, 0), 590, 180, False)
+        tekst_kõne('INCONSOLATA.TTF', 16, valikud[praegune_stseen][4], (0, 0, 0), 590, 220, False)
+        mpos = pygame.mouse.get_pos()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                crashed = True
+                pygame.quit()
+                quit()
+        klõps = pygame.mouse.get_pressed()
+        if klõps[0]:
+            if hoid == False:
+                if valik1_kast.collidepoint(mpos):
+                    taust = taustapildid[valikud[praegune_stseen][3]]
+                    praegune_stseen = valikud[praegune_stseen][2]
+                if valik2_kast.collidepoint(mpos):
+                    taust = taustapildid[valikud[praegune_stseen][6]]
+                    praegune_stseen = valikud[praegune_stseen][5]
+                hoid = True
+        else:
+            hoid = False
     pygame.display.update()
