@@ -10,7 +10,7 @@ read = f.readlines()
 valikud = dict()
 for rida in read:
     reasisu = rida.strip().split("/")
-    valikud[reasisu[0]] = [reasisu[1], {reasisu[2] : (reasisu[3], reasisu[4])}, {reasisu[5] : (reasisu[6], reasisu[7])}]
+    valikud[reasisu[0]] = (reasisu[1], reasisu[2], reasisu[3], reasisu[4], reasisu[5], reasisu[6], reasisu[7])
 praegune_stseen = "ALGUS"
 
 #ekraan
@@ -52,7 +52,7 @@ def tekst_kõne(font : str, suurus : int, tekst : str, värv,x,y, bold : bool):
     screen.blit(tekst, tekstRect)
 valik1_kast = pygame.Rect(400, 170, 380, 20)
 valik2_kast = pygame.Rect(492, 210, 197, 20)
-vasak_klõps = False    
+hoid = False    
 
 #põhiprogramm
 
@@ -60,25 +60,27 @@ running = True
 while running:
     screen.fill((0, 0, 0))
     screen.blit(taust, (0, 0))
-    tekst_kõne('ARIALUNI.ttf', 20, 'Tere hommikust! On reede, kell on 12 ning sul on valik:', (0, 0, 0), 550, 140, False)
-    tekst_kõne('ARIALUNI.ttf', 16, 'a) kas sa lähed AARi tundi kus toimub kontrolltöö või;', (0, 0, 0), 590, 180, False)
-    tekst_kõne('ARIALUNI.ttf', 16, 'b) läheb käiku plaan Netflix ', (0, 0, 0), 590, 220, False)
+    tekst_kõne('ARIALUNI.ttf', 20, valikud[praegune_stseen][0], (0, 0, 0), 550, 140, False)
+    tekst_kõne('ARIALUNI.ttf', 16, valikud[praegune_stseen][1], (0, 0, 0), 590, 180, False)
+    tekst_kõne('ARIALUNI.ttf', 16, valikud[praegune_stseen][4], (0, 0, 0), 590, 220, False)
     mpos = pygame.mouse.get_pos()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             crashed = True
             pygame.quit()
             quit()
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            if event.button == 1:
-                vasak_klõps = True
-        if event.type == pygame.MOUSEBUTTONUP:
-            if event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.MOUSEBUTTONUP:
-                vasak_klõps = False
-    if vasak_klõps == True:
-        if valik1_kast.collidepoint(mpos):
-            if taust == taustapildid['Korter']:
-                taust = taustapildid['Pood']
-        if valik2_kast.collidepoint(mpos):
-            print('Tubli!')
+    klõps = pygame.mouse.get_pressed()
+    if klõps[0]:
+        if hoid == False:
+            if valik1_kast.collidepoint(mpos):
+                print(valikud[praegune_stseen][1])
+                taust = taustapildid[valikud[praegune_stseen][3]]
+                praegune_stseen = valikud[praegune_stseen][2]
+            if valik2_kast.collidepoint(mpos):
+                print(valikud[praegune_stseen][4])
+                taust = taustapildid[valikud[praegune_stseen][6]]
+                praegune_stseen = valikud[praegune_stseen][5]
+            hoid = True
+    else:
+        hoid = False
     pygame.display.update()

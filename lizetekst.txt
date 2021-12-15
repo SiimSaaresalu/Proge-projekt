@@ -1,2 +1,4 @@
 ALGUS/Tere hommikust! On reede, kell on 12 ning sul on valik:/a) kas sa lähed AARi tundi kus toimub kontrolltöö või;/AAR/AAR/b)netflix/NETFLIX/Korter
-AAR/jõudsid aari .../a) teed kontrolltöö lebolt jurgasega ära ja lähed poodi/Pood/POOD/b) kukud kontrolltööst läbi sest ei oska/Korter/~~~~~
+AAR/jõudsid aari .../a) teed kontrolltöö lebolt jurgasega ära ja lähed poodi/POOD/Pood/b) kukud kontrolltööst läbi sest ei oska/SURM/Korter
+POOD/oled poes/a)ostad banaani/BANAAN/Gen-ees/b)ostad õuna/ÕUN/Trepp_esik
+NETFLIX/otsustasid netflixi vaadata/film oli hea/SURM/Korter/film oli halb/SURM1/Korter
