@@ -7,6 +7,7 @@ pygame.init()
 
 f = open("lizetekst.txt", encoding="utf-8")
 read = f.readlines()
+f.close()
 valikud = dict()
 for rida in read:
     reasisu = rida.strip().split("/")
@@ -60,6 +61,7 @@ running = True
 while running:
     screen.fill((0, 0, 0))
     screen.blit(taust, (0, 0))
+<<<<<<< Updated upstream
     tekst_kõne('ARIALUNI.ttf', 20, valikud[praegune_stseen][0], (0, 0, 0), 550, 140, False)
     tekst_kõne('ARIALUNI.ttf', 16, valikud[praegune_stseen][1], (0, 0, 0), 590, 180, False)
     tekst_kõne('ARIALUNI.ttf', 16, valikud[praegune_stseen][4], (0, 0, 0), 590, 220, False)
@@ -84,3 +86,50 @@ while running:
     else:
         hoid = False
     pygame.display.update()
+=======
+    if praegune_stseen in {'AAR-LÕPP','KAINE-LÕPP','EKSMAT-LÕPP','MÄNG-LÕPP','BLACKOUT-LÕPP'}:
+        tekst_kõne('ARIALUNI.ttf', 20, valikud[praegune_stseen], (0, 0, 0), 550, 140, False)
+#         tekst_kõne('ARIALUNI.ttf', 16, "Alusta mängu uuesti", (0, 0, 0), 590, 180, False)
+        tekst_kõne('ARIALUNI.ttf', 16, "Sulge mäng", (0, 0, 0), 590, 220, False)
+        mpos = pygame.mouse.get_pos()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                crashed = True
+                pygame.quit()
+                quit()
+        klõps = pygame.mouse.get_pressed()
+        if klõps[0]:
+#             if hoid == False:
+#                 if valik1_kast.collidepoint(mpos):
+#                     taust = "Korter"
+#                     praegune_stseen = "ALGUS"
+                if valik2_kast.collidepoint(mpos):
+                    pygame.quit()
+                    quit()
+                hoid = True
+        else:
+            hoid = False
+    if praegune_stseen not in {'AAR-LÕPP','KAINE-LÕPP','EKSMAT-LÕPP','MÄNG-LÕPP','BLACKOUT-LÕPP'}:
+        tekst_kõne('ARIALUNI.ttf', 20, valikud[praegune_stseen][0], (0, 0, 0), 550, 140, False)
+        tekst_kõne('ARIALUNI.ttf', 16, valikud[praegune_stseen][1], (0, 0, 0), 590, 180, False)
+        tekst_kõne('ARIALUNI.ttf', 16, valikud[praegune_stseen][4], (0, 0, 0), 590, 220, False)
+        mpos = pygame.mouse.get_pos()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                crashed = True
+                pygame.quit()
+                quit()
+        klõps = pygame.mouse.get_pressed()
+        if klõps[0]:
+            if hoid == False:
+                if valik1_kast.collidepoint(mpos):
+                    taust = taustapildid[valikud[praegune_stseen][3]]
+                    praegune_stseen = valikud[praegune_stseen][2]
+                if valik2_kast.collidepoint(mpos):
+                    taust = taustapildid[valikud[praegune_stseen][6]]
+                    praegune_stseen = valikud[praegune_stseen][5]
+                hoid = True
+        else:
+            hoid = False
+    pygame.display.update()
+>>>>>>> Stashed changes

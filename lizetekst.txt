@@ -5,6 +5,10 @@ POOD/Otsustasid pärast oma tegevust poodi minna. Kas sa:/a)ostad õhtuks veini/
 AAR-LÕPP/Kukkusid testi läbi ja läksid tagasi korterisse patja nutma. Kuna olid masenduses otsustasid ülejäänud päeva korteris veeta.
 KORTER-MIDAGI/Käes on õhtu ja lähed sõpradega välja. Kas sa:/a) lähed Genialsitide Klubisse/GEN-MIDAGI/Gen-sees1/b) lähed Treppi/TREPP-MIDAGI/Trepp-esik
 KORTER-VEIN/Käes on õhtu ja lähed sõpradega välja. Kas sa:/a) lähed Genialsitide Klubisse/GEN-VEIN/Gen-sees1/b) lähed Treppi/TREPP-VEIN/Trepp-esik
+<<<<<<< Updated upstream
+=======
+TREPP-VEIN/ Trepis mängib muusika nii valjusti, et kedagi pole kuulda. Jood salaja oma veini ära. Sõber tahab Genni edasi minna. Kas sa:/a) lähed temaga kaasa/GEN-VEIN/Gen-sees1/b) otsustad koju minna/MÄNG-LÕPP/Korter
+>>>>>>> Stashed changes
 TREPP-MIDAGI/Oled trepis ja saad aru, et sul pole midagi juua. Kas sa:/a) teed täna kainekat/KAINE-LÕPP/Korter/b) ostad ülehinnatud jooke baariletist ja liigud Edasi Genni/GEN-VEIN/Gen-sees1
 KAINE-LÕPP/Väljas hakkas igav, sest keegi teine ei liitunud sinu ideega. Seega läksid koju.
 GEN-MIDAGI/Oled Gennis ja saad aru, et sul pole midagi juua. Kas sa:/a) teed täna kainekat/KAINE-LÕPP/Korter/b) ostad ülehinnatud jooke baariletist/GEN-VEIN/Gen-sees1
@@ -12,4 +16,8 @@ GEN-VEIN/Oled Gennis ja suures hoos. Muusika mängib nii valjusti, et kedagi pol
 EKSMAT-LÕPP/Õppejõududele ei meeldinud üldse kuidas sa käitusid ning otsustasid sind kohapeal eksmatrikuleerida. Läksid korterisse ning nutsid patja ja jäid magama.
 GEN-EES/Kell on 3 öösel ning sa oled väga väsinud. Kas sa:/a) lähed koju magama/MÄNG-LÕPP/Korter/b) jääd linna peale veel ringi tuiskama/BLACKOUT-LÕPP/Must
 MÄNG-LÕPP/Läksid koju magama ning oled rahul oma reedese päevaga. 
+<<<<<<< Updated upstream
 BLACKOUT-LÕPP/Kuna sa olid nii väsinud, siis jäid ühel hetkel pingile magama.
+=======
+BLACKOUT-LÕPP/Kuna sa olid nii väsinud, siis jäid ühel hetkel pingile magama.
+>>>>>>> Stashed changes
