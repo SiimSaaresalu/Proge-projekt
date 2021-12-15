@@ -3,8 +3,7 @@ from pygame.locals import *
 from pygame import mixer
 pygame.init()
 
-# see osa võtab tekstifailist teksti ja paneb need sõnastikku valikud kirja kujul
-# STSEENINIMI: põhitekst, esimese valiku tekst: (järgmine taust, järgmise stseeni nimi), teise valiku tekst: (järgmine taust, järgmise stseeni nimi)
+# see osa võtab tekstifailist teksti ja lisab vajaliko info sõnastikku
 
 f = open("lizetekst.txt", encoding="utf-8")
 read = f.readlines()
@@ -58,8 +57,6 @@ hoid = False
 #muusika
 
 mixer.init()
-mixer.music.load('Toto-Africa-_Official-HD-Video_.ogg')
-mixer.music.set_volume(0.5)
 #põhiprogramm
 
 running = True
@@ -68,10 +65,14 @@ while running:
     screen.blit(taust, (0, 0))
     if praegune_stseen == 'TREPP-VEIN' or praegune_stseen == 'TREPP-MIDAGI':
         if not mixer.music.get_busy():
+            mixer.music.load('Toto-Africa-_Official-HD-Video_.ogg')
+            mixer.music.set_volume(0.1)
             mixer.music.play(start=140)
     elif praegune_stseen == 'GEN-VEIN' or praegune_stseen == 'GEN-MIDAGI':
         if not mixer.music.get_busy():
-            mixer.music.play()
+            mixer.music.load('The-Proclaimers-I_m-Gonna-Be-_500-Miles_-_Official-Music-Video_.ogg')
+            mixer.music.set_volume(0.05)
+            mixer.music.play(start=50)
     elif praegune_stseen not in {'TREPP-VEIN', 'TREPP-MIDAGI', 'GEN-VEIN', 'GEN-MIDAGI'} and mixer.music.get_busy():
         mixer.music.stop()
     if praegune_stseen in {'AAR-LÕPP','KAINE-LÕPP','EKSMAT-LÕPP','MÄNG-LÕPP','BLACKOUT-LÕPP'}:
