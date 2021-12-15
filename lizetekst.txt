@@ -1,4 +1,15 @@
-ALGUS/Tere hommikust! On reede, kell on 12 ning sul on valik:/a) kas sa lähed AARi tundi kus toimub kontrolltöö või;/AAR/AAR/b)netflix/NETFLIX/Korter
-AAR/jõudsid aari .../a) teed kontrolltöö lebolt jurgasega ära ja lähed poodi/POOD/Pood/b) kukud kontrolltööst läbi sest ei oska/SURM/Korter
-POOD/oled poes/a)ostad banaani/BANAAN/Gen-ees/b)ostad õuna/ÕUN/Trepp_esik
-NETFLIX/otsustasid netflixi vaadata/film oli hea/SURM/Korter/film oli halb/SURM1/Korter
+ALGUS/Tere hommikust! On reede, kell on 12 ning sul on valik:/a) kas sa lähed AARi tundi kus toimub kontrolltöö/AAR/AAR/b) vaatad Netflixi ja mõtled elu üle/NETFLIX/Korter
+NETFLIX/Väljas on uus seriaal, mida saaks väga lihtslat binge-ida. Kas sa:/a) vaatad seriaali algusest lõpuni ära/KORTER-MIDAGI/Korter/b) vaatad ühe osa ära ja lähed poodi/POOD/Pood
+AAR/Jõudsid AARi, kas sa:/a) proovid kontrolltöö ausalt ära lahendada/AAR-LÕPP/Korter/b) võtad lahti ühe kindla programmi ja lahendad sellega/POOD/Pood
+POOD/Otsustasid pärast oma tegevust poodi minna. Kas sa:/a)ostad õhtuks veini/KORTER-VEIN/Korter/b)ei osta midagi, sest tudengid on vaesed/KORTER-MIDAGI/Korter
+AAR-LÕPP/Kukkusid testi läbi ja läksid tagasi korterisse patja nutma. Kuna olid masenduses otsustasid ülejäänud päeva korteris veeta.
+KORTER-MIDAGI/Käes on õhtu ja lähed sõpradega välja. Kas sa:/a) lähed Genialsitide Klubisse/GEN-MIDAGI/Gen-sees1/b) lähed Treppi/TREPP-MIDAGI/Trepp-esik
+KORTER-VEIN/Käes on õhtu ja lähed sõpradega välja. Kas sa:/a) lähed Genialsitide Klubisse/GEN-VEIN/Gen-sees1/b) lähed Treppi/TREPP-VEIN/Trepp-esik
+TREPP-MIDAGI/Oled trepis ja saad aru, et sul pole midagi juua. Kas sa:/a) teed täna kainekat/KAINE-LÕPP/Korter/b) ostad ülehinnatud jooke baariletist ja liigud Edasi Genni/GEN-VEIN/Gen-sees1
+KAINE-LÕPP/Väljas hakkas igav, sest keegi teine ei liitunud sinu ideega. Seega läksid koju.
+GEN-MIDAGI/Oled Gennis ja saad aru, et sul pole midagi juua. Kas sa:/a) teed täna kainekat/KAINE-LÕPP/Korter/b) ostad ülehinnatud jooke baariletist/GEN-VEIN/Gen-sees1
+GEN-VEIN/Oled Gennis ja suures hoos. Muusika mängib nii valjusti, et kedagi pole kuulda. Järsku näed kooli õppejõude. Kas sa:/a) pakud neile oma külmarohtu/EKSMAT-LÕPP/Korter/b) lased neil olla ja teed oma asju edasi/GEN-EES/Gen-ees
+EKSMAT-LÕPP/Õppejõududele ei meeldinud üldse kuidas sa käitusid ning otsustasid sind kohapeal eksmatrikuleerida. Läksid korterisse ning nutsid patja ja jäid magama.
+GEN-EES/Kell on 3 öösel ning sa oled väga väsinud. Kas sa:/a) lähed koju magama/MÄNG-LÕPP/Korter/b) jääd linna peale veel ringi tuiskama/BLACKOUT-LÕPP/Must
+MÄNG-LÕPP/Läksid koju magama ning oled rahul oma reedese päevaga. 
+BLACKOUT-LÕPP/Kuna sa olid nii väsinud, siis jäid ühel hetkel pingile magama.
