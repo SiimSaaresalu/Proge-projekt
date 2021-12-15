@@ -2,8 +2,7 @@ import pygame
 
 pygame.init()
 
-# see osa võtab tekstifailist teksti ja paneb need sõnastikku valikud kirja kujul
-# STSEENINIMI: põhitekst, esimese valiku tekst: (järgmine taust, järgmise stseeni nimi), teise valiku tekst: (järgmine taust, järgmise stseeni nimi)
+# see osa võtab tekstifailist teksti ja paneb info sõnastikku 
 
 f = open("lizetekst.txt", encoding="utf-8")
 read = f.readlines()
@@ -56,11 +55,11 @@ valik2_kast = pygame.Rect(492, 210, 197, 20)
 hoid = False    
 
 #põhiprogramm
-
 running = True
 while running:
     screen.fill((0, 0, 0))
     screen.blit(taust, (0, 0))
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     tekst_kõne('ARIALUNI.ttf', 20, valikud[praegune_stseen][0], (0, 0, 0), 550, 140, False)
     tekst_kõne('ARIALUNI.ttf', 16, valikud[praegune_stseen][1], (0, 0, 0), 590, 180, False)
@@ -87,6 +86,22 @@ while running:
         hoid = False
     pygame.display.update()
 =======
+=======
+    if taust == taustapildid['Gen-sees2'] or taust == taustapildid["Gen-ees"] or taust == taustapildid["Gen-sees1"]:
+        if not mixer.music.get_busy():
+            mixer.init()
+            mixer.music.load('Toto-Africa-_Official-HD-Video_.ogg')
+            mixer.music.set_volume(0.5)
+            mixer.music.play(start=140)
+    elif taust == taustapildid["Trepp-esik"] or taust == taustapildid["Trepp-põhi"]:
+        if not mixer.music.get_busy():
+            mixer.init()
+            mixer.music.load("The-Proclaimers-I_m-Gonna-Be-_500-Miles_-_Official-Music-Video_.ogg")
+            mixer.music.set_volume(0.5)
+            mixer.music.play()
+    elif praegune_stseen not in {'TREPP-VEIN', 'TREPP-MIDAGI', 'GEN-VEIN', 'GEN-MIDAGI'} and mixer.music.get_busy():
+        mixer.music.stop()
+>>>>>>> Stashed changes
     if praegune_stseen in {'AAR-LÕPP','KAINE-LÕPP','EKSMAT-LÕPP','MÄNG-LÕPP','BLACKOUT-LÕPP'}:
         tekst_kõne('ARIALUNI.ttf', 20, valikud[praegune_stseen], (0, 0, 0), 550, 140, False)
 #         tekst_kõne('ARIALUNI.ttf', 16, "Alusta mängu uuesti", (0, 0, 0), 590, 180, False)
