@@ -72,6 +72,8 @@ while running:
     elif praegune_stseen == 'GEN-VEIN' or praegune_stseen == 'GEN-MIDAGI':
         if not mixer.music.get_busy():
             mixer.music.play()
+    elif praegune_stseen not in {'TREPP-VEIN', 'TREPP-MIDAGI', 'GEN-VEIN', 'GEN-MIDAGI'} and mixer.music.get_busy():
+        mixer.music.stop()
     if praegune_stseen in {'AAR-LÕPP','KAINE-LÕPP','EKSMAT-LÕPP','MÄNG-LÕPP','BLACKOUT-LÕPP'}:
         tekst_kõne('INCONSOLATA.TTF', 20, valikud[praegune_stseen], (0, 0, 0), 550, 140, False)
         tekst_kõne('INCONSOLATA.TTF', 16, "Sulge mäng", (0, 0, 0), 590, 220, False)
