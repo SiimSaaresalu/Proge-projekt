@@ -2,6 +2,19 @@ import pygame
 
 pygame.init()
 
+# see osa võtab tekstifailist teksti ja paneb need sõnastikku valikud kirja kujul
+# STSEENINIMI: põhitekst, esimese valiku tekst: (järgmine taust, järgmise stseeni nimi), teise valiku tekst: (järgmine taust, järgmise stseeni nimi)
+
+f = open("lizetekst.txt", encoding="utf-8")
+read = f.readlines()
+valikud = dict()
+for rida in read:
+    reasisu = rida.strip().split("/")
+    valikud[reasisu[0]] = [reasisu[1], {reasisu[2] : (reasisu[3], reasisu[4])}, {reasisu[5] : (reasisu[6], reasisu[7])}]
+praegune_stseen = "ALGUS"
+
+#ekraan
+
 ekraan_laius = 1280
 ekraan_pikkus = 720
 screen = pygame.display.set_mode((ekraan_laius, ekraan_pikkus))
@@ -9,6 +22,8 @@ screen = pygame.display.set_mode((ekraan_laius, ekraan_pikkus))
 pygame.display.set_caption('Tudengi päev Tartus')
 icon = pygame.image.load('images.png')
 pygame.display.set_icon(icon)
+
+#taustapildid
 
 taustapildid = {'Korter': pygame.transform.scale(pygame.image.load('korter.jpg'), (1280, 720)),
                 'Pood': pygame.transform.scale(pygame.image.load('pood.jpg'), (1280, 720)),
@@ -20,9 +35,13 @@ taustapildid = {'Korter': pygame.transform.scale(pygame.image.load('korter.jpg')
                 'Gen-sees2': pygame.transform.scale(pygame.image.load('gen sees2.jpg'), (1280, 720))}
 taust = taustapildid['Korter']
 
+#tegelane
+
 def player(x, y):
     screen.blit(tegelaneImg, (x, y))
-    
+
+#stseeni teksti vormindus
+
 def tekst_kõne(font : str, suurus : int, tekst : str, värv,x,y, bold : bool):
     font = pygame.font.Font(font, suurus)
     font.set_bold(bold)
@@ -34,7 +53,9 @@ def tekst_kõne(font : str, suurus : int, tekst : str, värv,x,y, bold : bool):
 valik1_kast = pygame.Rect(400, 170, 380, 20)
 valik2_kast = pygame.Rect(492, 210, 197, 20)
 vasak_klõps = False    
-    
+
+#põhiprogramm
+
 running = True
 while running:
     screen.fill((0, 0, 0))
